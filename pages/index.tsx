@@ -1,19 +1,31 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { makeStyles } from '@material-ui/core'
+import { NextPage } from 'next'
 
+// Internal Component(s)
+import Navigations from '../components/Navigations'
+import DarkTheme from '../Theme/DarkTheme'
+
+
+// Styles
 const useStyles = makeStyles({
   container: {
-    textAlign: 'center',
+    position: 'relative',
+    height: '100vh',
   }
 })
+
+// Dummy data
+const navigationsItems = [
+  {label: 'Home', redirect: '#home', ariaLabel: 'Click to be redirect to the homepage'},
+  {label: 'Projects', redirect: '#projects', ariaLabel: 'Click to be redirect to the projects section'},
+]
 
 const Home: NextPage = () => {
   const { container } = useStyles()
 
   return (
     <div className={container}>
+      <Navigations navigationsItems={navigationsItems}/>
       Hello World
     </div>
   )
