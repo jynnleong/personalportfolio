@@ -3,8 +3,6 @@ import { NextPage } from 'next'
 
 // Internal Component(s)
 import Navigations from '../components/Navigations'
-import DarkTheme from '../Theme/DarkTheme'
-
 
 // Styles
 const useStyles = makeStyles({
