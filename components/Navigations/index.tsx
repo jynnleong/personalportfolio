@@ -11,11 +11,24 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'column',
 		width: '50px',
-		color: 'red',
 	},
 
 	navigationsItem: {
 		display: 'flex',
+    color: 'black',
+    textDecoration: 'none',
+    fontWeight: 'bold',
+    marginBottom: '10px',    
+
+    '& > span': {
+      display: 'none',
+    },
+
+    '&:hover': {
+      '& > span': {
+        display: 'block',
+      },
+    },
 	},
 })
 
@@ -48,5 +61,3 @@ const Navigations: FunctionComponent<NavigationsProps> = ({
 }
 
 export default Navigations
-
-// N722
