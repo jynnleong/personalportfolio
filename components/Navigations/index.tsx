@@ -22,22 +22,22 @@ const useStyles = makeStyles({
     marginBottom: '10px',
 
     '& > span': {
+      display: 'none',
       transform: 'translateY(-10%)',
-      opacity: 0,
       transition: 'all 0.3s ease-in',
       marginLeft: '4px',
     },
 
-    '&:hover': {
-      '& > span': {
-        transform: 'translateY(0)',
-        opacity: 1,
-      },
-    },
-
     '& > svg': {
+      fill: '#2b2a2a',
+
       '&:hover': {
-        fill: 'white',
+        fill: '#a1e39f',
+
+        '& + span': {
+          display: 'block',
+          transform: 'translateY(0)',
+        },
       },
     },
 	},
