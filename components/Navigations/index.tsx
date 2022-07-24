@@ -1,7 +1,6 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import { makeStyles } from '@material-ui/core'
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
-import CheckBoxIcon from '@mui/icons-material/CheckBox'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 // Styles
 const useStyles = makeStyles({
@@ -12,34 +11,11 @@ const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'column',
 		width: '50px',
+		color: 'red',
 	},
 
 	navigationsItem: {
 		display: 'flex',
-    color: 'black',
-    textDecoration: 'none',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-
-    '& > span': {
-      display: 'none',
-      transform: 'translateY(-10%)',
-      transition: 'all 0.3s ease-in',
-      marginLeft: '4px',
-    },
-
-    '& > svg': {
-      fill: '#2b2a2a',
-
-      '&:hover': {
-        fill: '#a1e39f',
-
-        '& + span': {
-          display: 'block',
-          transform: 'translateY(0)',
-        },
-      },
-    },
 	},
 })
 
@@ -57,24 +33,13 @@ type NavigationsProps = {
 const Navigations: FunctionComponent<NavigationsProps> = ({
   navigationsItems
 }) => {
-  // Classes
 	const { navigationsContainer, navigationsItem } = useStyles()
-
-  // Hook
-  const [selectedIndex, setSelectedIndex] = useState<number>()
 
 	return (
 		<nav className={navigationsContainer}>
-			{navigationsItems && navigationsItems.map(({ label, redirect, ariaLabel }, index) => (
-				<a
-          href={redirect}
-          className={navigationsItem}
-          role="button"
-          aria-label={ariaLabel}
-          key={label}
-          onClick={() => setSelectedIndex(index)}
-        >
-          { index === selectedIndex ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon /> }
+			{navigationsItems && navigationsItems.map(({ label, redirect, ariaLabel }) => (
+				<a href={redirect} className={navigationsItem} role="button" aria-label={ariaLabel} key={label}>
+					<ChevronRightIcon />
 					<span>{label}</span>
 				</a>
 			))}
@@ -83,3 +48,5 @@ const Navigations: FunctionComponent<NavigationsProps> = ({
 }
 
 export default Navigations
+
+// N722
